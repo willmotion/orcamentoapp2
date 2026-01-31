@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ProposalData } from '../types';
 import { refineProposalText, suggestScope } from '../services/geminiService';
@@ -189,9 +188,10 @@ export const ProposalEditor: React.FC<ProposalEditorProps> = ({ data, onChange }
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Prazo</label>
+          <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Prazo (apenas número)</label>
           <input 
             type="text" 
+            placeholder="Ex: 10"
             className="w-full p-2.5 bg-white dark:bg-brand-deep border border-gray-200 dark:border-gray-700 dark:text-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-brand-yellow outline-none transition-all"
             value={data.deadline}
             onChange={(e) => handleChange('deadline', e.target.value)}
