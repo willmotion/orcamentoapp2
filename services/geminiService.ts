@@ -1,10 +1,13 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-
 export const refineProposalText = async (text: string, context: string): Promise<string> => {
+  if (!process.env.API_KEY) {
+    console.warn("API_KEY não configurada. Verifique as variáveis de ambiente no Vercel.");
+    return text;
+  }
+
   try {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Você é um redator sênior de propostas comerciais para estúdios de Motion Design. 
@@ -24,7 +27,10 @@ export const refineProposalText = async (text: string, context: string): Promise
 };
 
 export const suggestScope = async (projectName: string): Promise<string[]> => {
+  if (!process.env.API_KEY) return [];
+
   try {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Gere uma lista de 5 itens de escopo técnico para um projeto de Motion Design chamado "${projectName}". 

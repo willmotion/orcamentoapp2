@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,16 +11,15 @@
     <meta property="og:description" content="Crie propostas comerciais de alto impacto em segundos.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/5968/5968322.png">
-    <meta name="twitter:card" content="summary_large_image">
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#262626">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="MotionFlow">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968322.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
+    <!-- Tailwind via CDN para desenvolvimento rápido, mas o Vite cuidará da otimização -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -51,9 +49,7 @@
             -webkit-tap-highlight-color: transparent;
         }
         @media print {
-            .no-print {
-                display: none !important;
-            }
+            .no-print { display: none !important; }
             .print-area {
                 width: 100% !important;
                 margin: 0 !important;
@@ -72,11 +68,13 @@
 <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
     "react": "https://esm.sh/react@^19.2.4",
-    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
@@ -84,15 +82,7 @@
 </head>
 <body class="bg-gray-50 dark:bg-brand-deep overflow-x-hidden">
     <div id="root"></div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('SW Registered'))
-            .catch(err => console.log('SW fail:', err));
-        });
-      }
-    </script>
-<script type="module" src="/index.tsx"></script>
+    <!-- O Vite usará este script como ponto de entrada principal -->
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
