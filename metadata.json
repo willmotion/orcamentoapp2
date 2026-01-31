@@ -1,0 +1,9 @@
+
+{
+  "name": "MotionFlow Proposal Studio",
+  "short_name": "MotionFlow",
+  "description": "Estúdio profissional para criação de propostas de Motion Design com suporte offline e IA.",
+  "version": "1.0.0",
+  "author": "Will Motion",
+  "requestFramePermissions": []
+}

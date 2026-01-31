@@ -1,0 +1,33 @@
+
+{
+  "short_name": "MotionFlow",
+  "name": "MotionFlow: Proposal Studio",
+  "description": "Gerador de propostas comerciais de alto nível para Motion Designers.",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#262626",
+  "background_color": "#121212",
+  "categories": ["business", "productivity", "design"],
+  "shortcuts": [
+    {
+      "name": "Nova Proposta",
+      "url": "/",
+      "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/5968/5968322.png", "sizes": "192x192" }]
+    }
+  ]
+}
